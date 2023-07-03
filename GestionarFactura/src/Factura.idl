@@ -1,0 +1,14 @@
+module sop_corba {
+    interface FacturaInt{
+	struct facturaDTO {
+        	string nombres;
+        	string apellidos;
+        	string codigoProducto;
+		string nombreProducto;
+        	float valorInicialOferta;
+        	float ValorFinalOferta;
+    	};
+
+        facturaDTO generarFactura(in string nombres, in string apellidos, in string nombreProducto, in float valorInicialOferta, in float ValorFinalOferta);
+    };
+};
