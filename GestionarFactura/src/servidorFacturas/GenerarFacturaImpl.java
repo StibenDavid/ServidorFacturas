@@ -17,29 +17,30 @@ import sop_corba.FacturaIntPackage.facturaDTO;
  */
 public class GenerarFacturaImpl extends FacturaIntPOA{
 
-   
-    @Override
-    public facturaDTO generarFactura(String nombres, String apellidos, String nombreProducto, float valorInicialOferta, float valorFinalOferta) {
-        facturaDTO factura = new facturaDTO();
 
+    @Override
+    public boolean generarFactura(facturaDTO datos) {
+        facturaDTO factura = new facturaDTO();
+        //
         try {
-            String nombreArchivo = nombres + "_" + apellidos + "_" + nombreProducto + ".txt";
+            String nombreArchivo = datos.nombres + "_" + datos.apellidos + "_" + datos.nombreProducto + ".txt";
             FileWriter archivo = new FileWriter(nombreArchivo);
 
             // Escribir los datos en el archivo
-            archivo.write("Nombre: " + nombres + " " + apellidos + "\n");
-            archivo.write("Producto: " + nombreProducto + "\n");
-            archivo.write("Valor inicial de la oferta: " + valorInicialOferta + "\n");
-            archivo.write("Valor final de la oferta: " + valorFinalOferta + "\n");
+            archivo.write("Nombre: " + datos.nombres + " " + datos.apellidos + "\n");
+            archivo.write("Producto: " + datos.nombreProducto + "\n");
+            archivo.write("Valor inicial de la oferta: " + datos.valorInicialOferta + "\n");
+            archivo.write("Valor final de la oferta: " + datos.ValorFinalOferta + "\n");
 
             // Cerrar el archivo
             archivo.close();
 
         } catch (IOException e) {
             System.out.println("Error al generar la factura: " + e.getMessage()); 
+            return false;
         }
 
-        return factura;
+        return true;
     }
 }
     
