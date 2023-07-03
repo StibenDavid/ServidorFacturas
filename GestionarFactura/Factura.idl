@@ -9,6 +9,6 @@ module sop_corba {
         	float ValorFinalOferta;
     	};
 
-        facturaDTO generarFactura(in string nombres, in string apellidos, in string nombreProducto, in float valorInicialOferta, in float ValorFinalOferta);
+        boolean generarFactura(in facturaDTO datos);
     };
 };
