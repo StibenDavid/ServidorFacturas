@@ -20,6 +20,7 @@ public class GenerarFacturaImpl extends FacturaIntPOA{
 
     public boolean generarFactura(facturaDTO datos) {
         try {
+            System.out.println("Entrando a generar factura...");
             String nombreArchivo = datos.nombres + "_" + datos.apellidos + "_" + datos.nombreProducto + ".txt";
             FileWriter archivo = new FileWriter(nombreArchivo);
 
